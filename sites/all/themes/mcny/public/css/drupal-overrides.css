@@ -1,0 +1,85 @@
+/**
+*   Drupal Overrides
+*   - This file overrides the styles on Drupal
+*/
+
+.heading-larger p { margin: 0; padding: 0; font-size: 30px; }
+.heading-larger ul.contextual-links li a {
+    font-size: 13px !important;
+    margin: 0.25em 0 !important;
+    padding: 0.25em 1em 0.25em 0.5em !important;
+}
+
+/**
+*   Exhibition content type
+*/
+.field-name-field-exhibition-banner img { width: 100% !important; height: auto; }
+
+/**
+*   jQuery Slide show Cycle2
+*/
+.banner-image>img { width: 100% !important; height: auto; }
+.views_slideshow_cycle2_slide { width: 100% !important; }
+.views_slideshow_cycle2_slide img { width: 100%; height: auto; display: block; }
+
+/**
+*   Slide show controls bottom
+*/
+.region-banner-slider { max-width: 1170px; position: relative; }
+.views-slideshow-controls-bottom { width: 100%; }
+.views-slideshow-controls-text-pause { display: none; }
+.views-slideshow-controls-text-previous, .views-slideshow-controls-text-next {
+    display: block;
+    height: 32px;
+    position: absolute;
+    text-indent: -9009px;
+    /*top: 43%;*/
+    top:50%;
+    width:32px;
+}
+.views-slideshow-controls-text-previous{ left: -42px;background: rgba(0, 0, 0, 0) url("../images/slider-left-arrow.png") no-repeat scroll 0 0; }
+.views-slideshow-controls-text-next { background: rgba(0, 0, 0, 0) url("../images/slider-right-arrow.png") no-repeat scroll 0 0; right: -42px; }
+
+/**
+*   Slide show pager bottom
+*/
+.skin-default{
+    position: relative;
+}
+.views_slideshow_pager_field { text-align: center;  }
+.views-content-field-banner-text-position {
+    text-indent: -140px;
+    width: 13px;
+    background-color: #e0e0e0;
+    height: 13px;
+    overflow: hidden;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.views_slideshow_pager_field_item.cycle-pager-active .views-content-field-banner-text-position {
+    background-color: #e4c842 !important; }
+.views_slideshow_pager_field_item { display: inline-block; }
+.views-slideshow-controls-bottom { margin: 0 auto; clear: both; position: absolute; bottom: 10px;left: 0;z-index: 9999;height: 15px; }
+
+/**
+*   Activists Slider
+*/
+.region-exhibition-activists, .region-exhibition-objects { margin: 0 15px; max-width: 1100px; }
+.region-exhibition-activists {
+    margin-bottom:60px;
+}
+.block-mcny-modal h2  { margin-top: 0 !important; margin-bottom: 20px !important; line-height: 26px; }
+.block-mcny-objects h2 { margin-top: 0 !important; margin-bottom: 40px !important; line-height: 26px; }
+
+
+#block-mcny-modal-mcny-modal-meet-activists { padding: 0; }
+#block-views-meet-activists-block {
+    box-shadow: 0 5px 2px -2px #ccc;
+    -moz-box-shadow: 0 5px 2px -2px #ccc;
+    -webkit-box-shadow: 0 5px 2px -2px #ccc;;
+    padding-bottom: 1px;
+    margin-bottom: 50px;
+}
+.view-meet-activists { margin-top: 50px; }
+#block-views-meet-activists-block h2 { font-family: "Vitesse Book"; font-size: 30px; margin: 0; padding:0; }
+#views_slideshow_cycle_teaser_section_meet_activists-block { margin: auto; }

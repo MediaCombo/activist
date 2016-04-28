@@ -1,0 +1,258 @@
+
+.modal {
+    text-align: center;
+    padding: 0!important;
+}
+
+.modal:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    margin-right: -4px; /* Adjusts for spacing */
+}
+
+.modal-dialog {
+    display: inline-block;
+    text-align: left;
+    vertical-align: middle;
+}
+#mcny-modal-response{
+    overflow: hidden;
+}
+/**
+*   Modal
+*/
+.modal.in .modal-dialog{
+    margin: 0 auto;
+}
+
+.modal-header { background-color: #d9edf7; color: #000; font-weight: bold; padding: 10px 15px 15px; }
+.modal-header.default { background-color: #55b9a6; color: #000; }
+.modal-header.info { background-color: #d9edf7; color: #000; }
+.modal-header.success { background-color: #5cb85c; color: #fff; }
+.modal-header.danger { background-color: #d9534f; color: #fff; }
+.modal-header.warning { background-color: #f0ad4e; color: #fff; }
+.modal-header.primary { background-color: #428bca; color: #fff; }
+
+.mcny-modal-indicator { font-family: "roboto_slabregular"; font-size: 16px; font-weight: bold; }
+
+.modal-content { border-radius: 0 !important; }
+.modal-content .modal-body { padding:36px 65px 52px 44px !important; }
+
+.modal-content .modal-header { padding: 0; margin: 0; min-height: 60px; position: relative; }
+.modal-content .modal-header .close {
+    background-color: #000;
+    color: #e4c842;
+    font-size: 2em;
+    border-radius: 30px !important;
+    margin: -10px -10px 0 0;
+    padding: 0 5px 4px 5px;
+    opacity: 0.9;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.modal-content .modal-header .close:hover { opacity: 1; }
+.modal-content .modal-title {
+    font-family: "roboto_slabregular";
+    font-size: 16px;
+    font-weight: bold;
+    padding: 21px;
+    max-width: 650px;
+}
+.modal-content .modal-title-category { font-size: 14px; font-weight: normal; }
+.modal-content .modal-title-category img { margin-right: 5px; vertical-align: bottom; max-width: 20px; }
+
+.mcny-modal-image-container { position: relative; text-align: center; }
+.mcny-modal-image { position: relative; text-align: center; }
+.mcny-modal-image>img {
+    position: relative;
+    margin: 0 auto;
+    max-height: 480px;
+}
+.mcny-modal-image .icon-image-series-overlap { position: absolute; bottom: 0; right: 0; margin: 0 13px 15px 0; }
+
+.mcny-modal-information { font-family: "robotoregular"; font-size: 14px; padding: 10px 0 0 40px;  float: left; max-width: 285px !important;}
+.mcny-modal-information .heading { font-family: "Vitesse Book"; font-size:18px; font-weight:bold; margin-bottom: 10px; line-height:20px; }
+.mcny-modal-information .title { font-family: "robotobold"; font-size: 18px; }
+.mcny-modal-information .year { margin-bottom: 10px; }
+.mcny-modal-information .text {
+    margin-bottom: 10px;
+    height: 304px;
+    overflow: hidden;
+    overflow-y: auto;
+}
+.mcny-modal-information .text.long { height: 300px; }
+.mcny-modal-information .text.auto { height: auto; max-height: 340px; }
+.mcny-modal-information .mcny-modal-slides { font-family: "robotobold"; font-size: 14px; }
+.mcny-modal-information .mcny-modal-slides #icon-image-series { cursor: pointer; }
+.mcny-modal-information .mcny-modal-slides .mcny-modal-slides-container {
+    font-family: "robotobold"; font-size: 14px; margin-top: 10px; }
+.mcny-modal-information .mcny-modal-slides .mcny-modal-slides-container .mcny-modal-slide-thumbnail {
+    max-height: 70px;
+    width: 53px;
+    margin-right: 5px;
+    cursor: pointer;
+    border: 1px solid;
+    border-color: #ccc;
+}
+.mcny-modal-information .mcny-modal-slides .mcny-modal-slides-container .mcny-modal-slide-thumbnail.active {
+    border: 2px solid;
+    border-color: #e4c842;
+}
+
+#mcny-modal-wrapper-video { position: relative; }
+#mcny-modal-wrapper-video-back { font-size: 2em; }
+#mcny-modal-wrapper-video-back a { color: #000; text-decoration: none; }
+#mcny-modal-wrapper-video-back a:hover { color: #e4c842; }
+
+.mcny-modal-slide-left { left: -60px; top: 40%; position: absolute; }
+.mcny-modal-slide-left .button-left { cursor: pointer; color: #e4c842; background: url('../images/arrow-slide-left.png') no-repeat top left; height:40px; width:40px;}
+.mcny-modal-slide-left .button-left:hover { color: #000; }
+
+.mcny-modal-slide-right { right: -60px; top: 40%; position: absolute; }
+.mcny-modal-slide-right .button-right { cursor: pointer; color: #e4c842; background: url('../images/arrow-slide-right.png') no-repeat top left; height:40px; width:40px; }
+.mcny-modal-slide-right .button-right:hover { color: #000; }
+
+
+@media only screen and (min-width : 1200px){
+    .modal {
+        background-color: #666;
+    }
+    /*.modal-content #mcny-modal-title { max-width: 300px; }*/
+    .mcny-modal-image-container { width: 609px; }
+}
+
+@media only screen and (min-width: 768px){
+    .mcny-modal-information{
+        padding-top: 0 !important;
+        height: 500px;
+        overflow-y: auto;
+    }
+    .mcny-modal-information .text{
+        overflow-y: hidden;
+        max-height: none !important;
+    }
+}
+
+@media only screen and (min-width:768px) and (max-width : 991px){
+    .mcny-modal-information .text { height: auto !important; /*max-height: 225px !important;*/ }
+    .mcny-modal-image{
+        width: auto;
+    }
+    .modal-content .modal-title { max-width: 350px; }
+}
+
+@media only screen and (min-width:992px) and (max-width : 1024px){
+    .mcny-modal-image{
+        width: auto;
+    }
+    .mcny-modal-image > img{
+        max-width: 500px;
+    }
+}
+
+@media only screen and (min-width:1024px) and (max-width : 1200px){
+    .mcny-modal-information{
+        max-width: 300px !important;
+    }
+    .mcny-modal-image {
+        width:480px;
+    }
+    .mcny-modal-image>img { max-width: 480px; }
+}
+
+@media only screen and (min-width : 768px){
+    .mcny-modal-image-container {
+        float: left;
+    }
+
+    .modal-content .modal-body { min-height: 568px;max-height: 568px; }
+}
+
+@media only screen and (max-width : 1024px){
+    .modal-content .modal-body {
+        webkit-overflow-scrolling: touch;
+    }
+}
+
+@media only screen and (max-width : 767px){
+    .modal-content .modal-header .close { position: absolute; top:10px; right: 10px; }
+    #mcny-modal-header .text-left {
+        max-width: 60% !important;
+    }
+    .modal-lg {
+        width:95% !important;
+    }
+
+    .modal-content #mcny-modal-title { padding-right:15px !important; }
+
+    .mcny-modal-title-right-side {
+        clear: both;
+        text-align: left;
+        width: 100%;
+    }
+    .modal-content .modal-title-category{
+        padding-right:10px !important;
+        padding-left: 10px !important;
+        margin-right:0 !important;
+        font-size: 2.5vw !important;
+    }
+
+    .modal-content .modal-body { padding: 10px !important; max-height: 480px; overflow: auto; }
+
+    .mcny-modal-image {  float: none !important; margin: 0 auto; max-height: none; width: auto; }
+    .mcny-modal-image>img { max-width: 100% !important; }
+    .mcny-modal-information .text.long { height: 100% !important; max-height:210px !important; max-width: none !important; }
+
+    .mcny-modal-information { padding-left: 5px !important; margin: 10px auto; float: none !important; max-width: none !important; }
+    .mcny-modal-information .text { height: 100% !important; }
+
+    .mcny-modal-slider { max-width: 110px; text-align: center; margin: 0 auto; }
+    .mcny-modal-slide-left { width: 50px; float: left; position: static !important; }
+    .mcny-modal-slide-right { width: 50px; float: left; position: static !important; }
+
+}
+@media only screen and (max-width: 480px){
+    .modal-content .modal-header .close { position: absolute; top:10px; right: 10px; }
+
+    .modal-content .modal-title {
+        padding:10px !important;
+        font-size:12px !important;
+        text-align: left;
+    }
+    #mcny-modal-header .text-left{
+        max-width: none !important;
+    }
+    #mcny-modal-header .text-right { float: none; clear: both; }
+
+    .icon-image-series-overlap > img{
+        width: 15px;
+    }
+    .mcny-modal-image .icon-image-series-overlap{
+        margin: 0 10px 5px 0 !important;
+    }
+    .mcny-modal-information .heading{
+        font-size:3.5vw !important;
+    }
+    .mcny-modal-information .title{
+        font-size:3.5vw !important;
+        padding:0 !important;
+    }
+    .mcny-modal-information .mcny-modal-slides .mcny-modal-slides-container .mcny-modal-slide-thumbnail{
+        margin-bottom:10px;
+    }
+    .mcny-modal-information .mcny-modal-slides{
+        font-size:3vw !important;
+    }
+    .mcny-modal-slides-container .icon-image-series{
+        width: 15px !important;
+    }
+}
+@media only screen and (min-width: 640px) and (max-width: 767px){
+    .modal-lg{
+        margin-top: 2%;
+        margin-bottom:2%;
+    }
+}

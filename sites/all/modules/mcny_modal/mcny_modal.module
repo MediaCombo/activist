@@ -1,0 +1,175 @@
+<?php
+/**
+ *  Implementation of hook_init()
+ *  - Includes the required files at time of execution or initialization
+ */
+function mcny_modal_init() {
+    drupal_add_css(drupal_get_path('module', 'mcny_modal') . '/css/mcny_modal.css', array('scope' => 'head'));
+    drupal_add_js(drupal_get_path('module', 'mcny_modal') . '/js/mcny_modal.js', array('scope' => 'footer'));
+
+    drupal_add_css(drupal_get_path('module', 'mcny_modal') . '/js/jquery.bxslider/jquery.bxslider.css', array('scope' => 'head'));
+    drupal_add_js(drupal_get_path('module', 'mcny_modal') . '/js/jquery.bxslider/jquery.bxslider.js', array('scope' => 'footer'));
+}
+
+/**
+ *  Implements the hook_page_build()
+ *  - Include the modal html in page footer automatically
+ */
+//function mcny_modal_page_build(&$page) {
+//    // TODO: Try to find way to stream php template file instead html. It will be very beneficial.
+//    $filePath = drupal_get_path('module', 'mcny_modal') . '/modal.tpl.php';
+//    $node = menu_get_object();
+//    $outputHtml = "";
+//    if ($node) {
+//        $outputHtml = file_get_contents($filePath);
+//    }
+//    $page['page_bottom'] = array(
+//        '#weight' => 25,
+//        '#markup' => $outputHtml,
+//    );
+//}
+
+/**
+ *  Includes the modal html template on desired page to execute on each request
+ */
+function mcny_modal_init_template(){
+    $file = drupal_get_path('module', 'mcny_modal').'/templates/modal.tpl.php';
+    include_once($file);
+}
+
+/**
+ *  Implements hook_block_info()
+ *  - Initialize the blocks with information
+ */
+function mcny_modal_block_info() {
+    $blocks = array();
+    $blocks['mcny_modal_meet_activists'] = array(
+        'info' => t('MCNY: Meet Activists'),
+        'cache' => DRUPAL_CACHE_PER_ROLE,
+        'status' => 1
+    );
+    return $blocks;
+}
+
+/**
+ *  Implements hook_block_view()
+ *  - Create the views for blocks
+ */
+function mcny_modal_block_view($delta = '') {
+    $block = array();
+    switch ($delta) {
+        case 'mcny_modal_meet_activists':
+            $hasSlides = (mcny_modal_get_activists_by_exhibition(arg(1))['total_slides'] >= 1) ?  true : false;
+            if(user_access('access content') && $hasSlides) { //good idea to check user perms here
+                $block['subject'] = 'Meet the Activists';
+                $block['content'] = theme('block__mcny_modal_meet_activists');
+            }
+            break;
+    }
+    return $block;
+}
+
+/**
+ *  Implements the theme hook.
+ *  - To override the theme for blocks
+ */
+function mcny_modal_theme() {
+    $items['block__mcny_modal_meet_activists'] = array (
+        'template' => 'block--mcny_modal_meet_activists',   // here comes your template name
+        'original hook' => 'block',
+        'path' => drupal_get_path('module', 'mcny_modal') . '/templates',
+    );
+    return $items;
+}
+
+/**
+ *  Implements hook_menu()
+ *  - Create the silent route to execute the ajax request
+ */
+function mcny_modal_menu() {
+    $items['ajax/get_activists_images'] = array (
+        'title' => 'Get activists images',
+        'page callback' => 'mcny_modal_get_activists_images',
+        'access arguments' => array ('access content'),
+        'type' => MENU_CALLBACK,
+    );
+    return $items;
+}
+
+/**
+ *  Ajax Call Back
+ *  - Returns the desired activists images data in JSON
+ */
+function mcny_modal_get_activists_images() {
+    // Get currently logged in user.
+    $result = mcny_modal_get_activist_detail($_POST['id']);
+    drupal_json_output($result);
+}
+
+/*
+ *  Returns the activists by current exhibition node
+ *  - Call back for showing the activists images
+ */
+function mcny_modal_get_activist_detail ($nid, $type = 'activists '){
+    $query = new EntityFieldQuery();
+
+    $query->entityCondition('entity_type', 'node')
+        ->propertyCondition('nid', $nid)
+        ->propertyCondition('status', NODE_PUBLISHED)
+        ->entityCondition('bundle', $type);
+    $queryResult = $query->execute();
+
+    $nids = (isset($queryResult['node'])) ? array_keys($queryResult['node']) : null;
+    $nodes = entity_load('node', $nids);
+
+    //$currentNode = (isset($nodes[0])) ? $nodes[$nids[0]] : $nodes;
+    $currentNode = $nodes[$nids[0]];
+    $imageWithAutoScale = image_style_url('activist_thumbnail_large', $currentNode->field_activist_image['und'][0]['uri']);
+
+    $nodes[$nids[0]]->field_activist_image['und'][0]['uri_scaled'] = $imageWithAutoScale;
+
+    return $nodes;
+}
+
+/*
+ *  Returns the activists by current exhibition node
+ *  - Call back for showing the activists images
+ */
+function mcny_modal_get_activists_by_exhibition ($nid, $thumbnailsPerSlide = 1, $type = 'activists'){
+    $node = null;
+    $query = new EntityFieldQuery();
+
+    $query->entityCondition('entity_type', 'node')
+        ->propertyCondition('status', NODE_PUBLISHED)
+        ->entityCondition('bundle', $type)
+        ->fieldOrderBy('field_activist_weight', 'value', 'ASC')
+        ->fieldCondition('field_activist_exhibition_ref', 'target_id', $nid);
+    $queryResult = $query->execute();
+
+    $nids = (isset($queryResult['node'])) ? array_keys($queryResult['node']) : null;
+    $nodes = entity_load('node', $nids);
+    $totalNodes = count($nodes);
+
+    $results = array();
+    $results['nodes'] = $nodes;
+    $results['node_ids'] = $nids;
+    $results['total_nodes'] = $totalNodes;
+
+    $slides = array();
+    $totalRows = round($totalNodes / $thumbnailsPerSlide);
+    for($i=1; $i <= $totalRows; $i++){
+        $count = 1;
+        foreach($nodes as $k => $n){
+            if($count <= $thumbnailsPerSlide) {
+                $slides[$i][] = $n;
+                $count++;
+                unset($nodes[$k]);
+            }
+        }
+    }
+
+    $results['slides'] = $slides;
+    $results['total_slides'] = count($slides);
+
+    return $results;
+}
