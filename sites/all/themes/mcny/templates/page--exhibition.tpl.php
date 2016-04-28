@@ -237,7 +237,11 @@
                                     if($timeline->field_timeline_type['und'][0]['value'] == 'Right Side') {
                                         ?>
                                         <span class="year date-display-single <?php echo $timeline_date_class; ?>">
-                                        <?php echo explode('-', $timeline->field_timeline_year['und'][0]['value'])[0]; ?>
+                                        <?php
+                                            $timeline_year = explode('-',
+                                                $timeline->field_timeline_year['und'][0]['value']);
+                                            echo $timeline_year[0];
+                                        ?>
                                     </span>
                                         <?php
                                     }
