@@ -59,7 +59,8 @@ function mcny_modal_block_view($delta = '') {
     $block = array();
     switch ($delta) {
         case 'mcny_modal_meet_activists':
-            $hasSlides = (mcny_modal_get_activists_by_exhibition(arg(1))['total_slides'] >= 1) ?  true : false;
+            $activists_exh = mcny_modal_get_activists_by_exhibition(arg(1));
+            $hasSlides = ($activists_exh['total_slides'] >= 1) ?  true : false;
             if(user_access('access content') && $hasSlides) { //good idea to check user perms here
                 $block['subject'] = 'Meet the Activists';
                 $block['content'] = theme('block__mcny_modal_meet_activists');

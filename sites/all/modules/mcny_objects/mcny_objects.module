@@ -29,7 +29,8 @@ function mcny_objects_block_view($delta = '') {
     $block = array();
     switch ($delta) {
         case 'mcny_objects_images':
-            $hasSlides = (mcny_objects_get_exhibition(arg(1))['total_slides'] >= 1) ?  true : false;
+            $objects_exh = mcny_objects_get_exhibition(arg(1));
+            $hasSlides = ($objects_exh['total_slides'] >= 1) ?  true : false;
             if(user_access('access content') && $hasSlides) { //good idea to check user perms here
                 $block['subject'] = 'Objects and Images';
                 $block['content'] = theme('block__mcny_objects_images');
