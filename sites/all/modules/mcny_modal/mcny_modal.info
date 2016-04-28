@@ -1,4 +1,0 @@
-name = Activist Popup
-description = Initialize the ajax based modal to show activists detail.
-project = Activist
-core = 7.x

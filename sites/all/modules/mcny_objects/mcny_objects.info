@@ -1,4 +1,0 @@
-name = Objects & Images Popup
-description = Allow to show the objects and images in modal/popup. Depends on Activists Modal module.
-project = Activist
-core = 7.x
