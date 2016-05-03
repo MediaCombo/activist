@@ -9,9 +9,6 @@
 
 /* Small Devices, Tablets */
 @media only screen and (min-width : 768px){
-    .ellipsis:after{
-        float:none;
-    }
     .front .views-slideshow-controls-bottom{
         bottom:-30px;
 

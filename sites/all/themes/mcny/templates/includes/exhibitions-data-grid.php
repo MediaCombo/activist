@@ -59,7 +59,7 @@
 
                                     </div>
                                     <div class="description">
-                                        <div class="ellipsis ellipsis-exhibition-description">
+                                        <div class="ellipsis-exhibition-description">
                                             <?php
                                                 $description = trim(strip_tags($currentNode['node']->field_exhibition_sub_title['und'][0]['value']));
                                                 //echo (strlen($description) > 25) ? substr($description, 0, 25) . '..' : $description;
