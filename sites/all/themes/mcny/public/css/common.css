@@ -45,7 +45,7 @@ a.no-link-background:hover {  background-color: transparent; }
 *   Ellipsis
 */
 .ellipsis-exhibition-title { max-height: 30px !important; }
-.ellipsis-exhibition-description { max-height: 36px !important; color:#000; }
+.ellipsis-exhibition-description {  color:#000; }
 .ellipsis-exhibition-date { max-height: 36px !important;color:#000; }
 .ellipsis-banner-title { max-height: 42px !important; }
 .ellipsis-banner-subtitle { max-height: 45px !important; }
