@@ -34,12 +34,16 @@
                             <?php
                             foreach(mcny_get_exhibition_nodes_by_term_organized($t, arg(2)) as $currentNode):?>
                                 <div class="col-lg-6 col-md-5 col-sm-6 col-xs-12 exhibition-post no-padding">
-                                    <a href="<?php echo base_path() . drupal_lookup_path('alias', "node/" . $currentNode['node']->nid); ?>"
+                                    <a href="<?php
+                                        if(strtolower($currentNode['label']->name) == 'coming soon') {
+                                        echo 'javascript:void(0);';
+                                    } else {
+                                        echo base_path() . drupal_lookup_path('alias', "node/" . $currentNode['node']->nid);
+                                    }  ?>"
                                        title="<?php
                                            echo $currentNode['node']->field_exhibition_title['und'][0]['value']; ?>">
                                     <div id="node-<?php echo $currentNode['node']->nid; ?>"
                                          class="image margin-bottom-10 ribbon-container">
-
                                         <?php if(strtolower($currentNode['label']->name) == 'from the archive' || strtolower($currentNode['label']->name) == 'coming soon'): ?>
                                             <div id="ribbon-<?php echo $currentNode['node']->nid; ?>"
                                                  style="background-color: <?php echo (!empty($currentNode['label']->field_exhibition_label_bg_color['und'][0]['rgb'])) ? $currentNode['label']->field_exhibition_label_bg_color['und'][0]['rgb'] : '#fff'; ?> " class="ribbon no-link-background">
