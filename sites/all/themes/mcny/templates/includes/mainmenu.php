@@ -50,8 +50,8 @@
                     <div class="social-items">
                         <ul>
                             <li><a href="javascript:void(0);"><img class="search_icon" src="<?php echo base_path().path_to_theme(); ?>/public/images/search-ico.png" /></a></li>
-                            <li class="hidden-xs"><a href="#" target="_blank"><span class="fa fa-twitter"></span></a></li>
-                            <li class="hidden-xs"><a href="#" target="_blank"><span class="fa fa-facebook"></span></a></li>
+                            <li class="hidden-xs"><a href="https://twitter.com/museumofcityny" target="_blank"><span class="fa fa-twitter"></span></a></li>
+                            <li class="hidden-xs"><a href="https://www.facebook.com/museumofcityny" target="_blank"><span class="fa fa-facebook"></span></a></li>
                         </ul>
 
                         <div class="clearfix"></div>
@@ -81,13 +81,13 @@
                         </div>
                         <div class="text-center">
                             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                                <a href="javascript:;" class="">
+                                <a href="https://twitter.com/museumofcityny" class="" target="_blank">
                                     <span class="fa fa-twitter fa-2x text-black"></span>
                                 </a>
                             </div>
                             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4"></div>
                             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                                <a href="javascript:;" class="">
+                                <a href="https://www.facebook.com/museumofcityny" class="" target="_blank">
                                     <span class="fa fa-facebook fa-2x text-black"></span>
                                 </a>
                             </div>
