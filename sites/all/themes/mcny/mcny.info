@@ -24,7 +24,6 @@ regions[search] = Search
 regions[banner_slider] = Banner Slider
 regions[content] = Page Content
 regions[sidebar_first] = Right Sidebar
-regions[social_bar] = Social Bar
 regions[footer] = Footer
 regions[footer_copyright] = Footer Copyright
 regions[footer_information] = Footer Text Information
