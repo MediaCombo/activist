@@ -202,58 +202,9 @@ include_once('includes/breadcrumb-page.php');
                         <div class="clearfix"></div>
                     </div>
                     <div class="description">
-                        Help us tell the stories of activism in New York City. Tag your photos #ActivistNY or email them to us at <a href="mailto:activistnewyork@mcny.org">activistnewyork@mcny.org</a>, and see them here and on display at the
-                        Museum.
+                        <?php echo render($page['connect_blog_text']); ?>
                     </div>
                     <div class="blog-feeds">
-                        <!--<div class="feed">
-                            <div class="feed-image">
-                                <img src="<?php /*echo drupal_get_path('theme', 'mcny'); */?>/public/images/blog-post-1.png">
-                            </div>
-                            <div class="feed-information">
-                                <div class="feed-title">Image Title</div>
-                                <div class="feed-date">June 28 2015</div>
-                                <div class="feed-description">
-                                    Image Caption aliquip ex ea commodo consequat. Duis aute exercitation ullamco laboris dolor in reprehenderit
-                                </div>
-                                <div class="btn-more">
-                                    <span class="fa fa-chevron-right"></span>
-                                </div>
-                            </div>
-                            <div class="clear"></div>
-                        </div>
-                        <div class="feed">
-                            <div class="feed-image">
-                                <img src="<?php /*echo drupal_get_path('theme', 'mcny'); */?>/public/images/blog-post-2.png">
-                            </div>
-                            <div class="feed-information">
-                                <div class="feed-title">Image Title</div>
-                                <div class="feed-date">June 28 2015</div>
-                                <div class="feed-description">
-                                    Image Caption aliquip ex ea commodo consequat. Duis aute exercitation ullamco laboris dolor in reprehenderit
-                                </div>
-                                <div class="btn-more">
-                                    <span class="fa fa-chevron-right"></span>
-                                </div>
-                            </div>
-                            <div class="clear"></div>
-                        </div>
-                        <div class="feed">
-                            <div class="feed-image">
-                                <img src="<?php /*echo drupal_get_path('theme', 'mcny'); */?>/public/images/blog-post-3.png">
-                            </div>
-                            <div class="feed-information">
-                                <div class="feed-title">Image Title</div>
-                                <div class="feed-date">June 28 2015</div>
-                                <div class="feed-description">
-                                    Image Caption aliquip ex ea commodo consequat. Duis aute exercitation ullamco laboris dolor in reprehenderit
-                                </div>
-                                <div class="btn-more">
-                                    <span class="fa fa-chevron-right"></span>
-                                </div>
-                            </div>
-                            <div class="clear"></div>
-                        </div>-->
                         <div id="postano-embed-control-99268-14220" class="pwe_embed_controls"></div>
                         <div id="postano-embed-99268-14220" class="pwe_embed"></div>
                         <script async id="postano-embed-loader-99268-14220"
