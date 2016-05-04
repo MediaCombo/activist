@@ -202,10 +202,8 @@ include_once('includes/breadcrumb-page.php');
                         <div class="clearfix"></div>
                     </div>
                     <div class="description">
-                        Have you witnessed or participated in a protest,
-                        a rally, or other activist event in New York City? Post a picture to our Blog; or tweet to us<br />
-                        at <a href="https://twitter.com/hashtag/activistny">@ActivistNY</a> and tell us how you are
-                        an activist.
+                        Help us tell the stories of activism in New York City. Tag your photos #ActivistNY or email them to us at <a href="mailto:activistnewyork@mcny.org">activistnewyork@mcny.org</a>, and see them here and on display at the
+                        Museum.
                     </div>
                     <div class="blog-feeds">
                         <!--<div class="feed">
