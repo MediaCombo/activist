@@ -5,12 +5,14 @@
             <!-- Exhibition Categories -->
             <?php
                 $imageDir = base_path().'sites/default/files/exhibition-category/';
+                $counter = 0;
                 foreach(mcny_get_taxonomy_options('exhibition_category', arg(2)) as $term): $t = $term['data'];
                     if($term['total'] < 1)
                         continue;
+                    $counter++;
                 ?>
 
-                <div class="col-lg-6 col-md-6 exhibition no-padding">
+                <div class="col-lg-6 col-md-6 exhibition no-padding" id="cat-<?php echo $counter; ?>">
 
                     <!-- Exhibition Category Information -->
                     <div class="col-lg-12">

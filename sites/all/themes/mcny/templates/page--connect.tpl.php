@@ -12,8 +12,8 @@ include_once('includes/breadcrumb-page.php');
                     <div class="quiz-container">
 
                         <div class="connect-advertise-image">
-                            <img src="<?php echo drupal_get_path('theme', 'mcny'); ?>/public/images/connect-quiz.png" class="img-responsive">
-                            <div class="advertised-text-overlap">
+                            <img src="<?php echo drupal_get_path('theme', 'mcny'); ?>/public/images/connect-quiz.jpg" class="img-responsive">
+                                <div class="advertised-text-overlap">
                                 <?php echo render($page['connect_quiz_info']); ?>
                             </div>
                         </div>
