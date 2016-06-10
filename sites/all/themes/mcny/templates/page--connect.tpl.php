@@ -10,12 +10,13 @@ include_once('includes/breadcrumb-page.php');
             <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 no-padding leftSide-connect">
                 <div class="quiz-wrapper">
                     <div class="quiz-container">
-
                         <div class="connect-advertise-image">
-                            <img src="<?php echo drupal_get_path('theme', 'mcny'); ?>/public/images/connect-quiz.jpg" class="img-responsive">
+<!--                            <img src="--><?php //echo drupal_get_path('theme', 'mcny'); ?><!--/public/images/connect-quiz.jpg" class="img-responsive" />-->
+                            <img src="<?php echo file_create_url($node->field_banner_image_quiz['und'][0]['uri']); ?>"
+                                 class="img-responsive" title="<?php echo $node->field_banner_image_quiz['und'][0]['title']; ?>" alt="<?php echo $node->field_banner_image_quiz['und'][0]['alt']; ?>"/>
                                 <div class="advertised-text-overlap">
-                                <?php echo render($page['connect_quiz_info']); ?>
-                            </div>
+                                  <?php echo render($page['connect_quiz_info']); ?>
+                                </div>
                         </div>
 
                         <div id="connect-response-image" class="connect-response-image margin-top-20 hidden">
@@ -28,6 +29,7 @@ include_once('includes/breadcrumb-page.php');
                             <div class="score-share">
                                 <div class="caption left">Share</div>
                                 <div class="left">
+<!--                                    <div class="addthis_native_toolbox"></div>-->
                                     <a href="javascript:;">
                                         <span class="score-share-icon fa fa-twitter fa-2x"></span>
                                     </a>
@@ -179,26 +181,27 @@ include_once('includes/breadcrumb-page.php');
                             <button id="submit" name="submit" class="btn btn-default btn-submit-transparent" onclick="submitQuiz();">
                                 Submit
                             </button>
-                            <a href="#" class="btn btn-default btn-submit-transparent hidden" id="connect_more">
+                            <?php echo render($page['learn_more_btn']); ?>
+                            <!--<a href="#" class="btn btn-default btn-submit-transparent hidden" id="connect_more">
                                 Learn more about Gender Equality
-                            </a>
+                            </a>-->
                         </div>
                     </div>
                 </div>
             </div>
 
-            
+
             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 no-padding rightSide-connect">
                 <div class="blog-sidebar-container">
                     <div class="header">
                         <div class="caption pull-left">
                             Submit Your Photo
                         </div>
-                        <div class="pull-right">
+                        <!--<div class="pull-right">
                             <a href="http://blog.activistnewyork.mcny.org/" title="Our Blog" class="btn btn-default btn-our-blog-white" target="_blank">
                                 Our Blog
                             </a>
-                        </div>
+                        </div>-->
                         <div class="clearfix"></div>
                     </div>
                     <div class="description">

@@ -42,6 +42,7 @@ regions[exhibition_timeline] = Exhibition Timeline
 regions[connect_quiz_info] = Connect Quiz Information
 regions[connect_quiz_response] = Connect Quiz Response
 regions[connect_blog_text] =    Connect Page Blog Text
+regions[learn_more_btn] =    Connect Page More Button
 
 ; Theme features
 features[] = logo
