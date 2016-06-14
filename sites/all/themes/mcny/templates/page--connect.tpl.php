@@ -11,10 +11,10 @@ include_once('includes/breadcrumb-page.php');
                 <div class="quiz-wrapper">
                     <div class="quiz-container">
                         <div class="connect-advertise-image">
-                            <img src="<?php echo drupal_get_path('theme', 'mcny'); ?>/public/images/connect-quiz.jpg" class="img-responsive" />
-                            <!--<img src="<?php echo file_create_url($node->field_banner_image_quiz['und'][0]['uri']);
+                            <!--<img src="<?php /*echo drupal_get_path('theme', 'mcny'); */?>/public/images/connect-quiz.jpg" class="img-responsive" />-->
+                            <img src="<?php echo file_create_url($node->field_banner_image_quiz['und'][0]['uri']);
                             ?>"
-                                 class="img-responsive" title="<?php echo $node->field_banner_image_quiz['und'][0]['title']; ?>" alt="<?php echo $node->field_banner_image_quiz['und'][0]['alt']; ?>"/>-->
+                                 class="img-responsive" title="<?php echo $node->field_banner_image_quiz['und'][0]['title']; ?>" alt="<?php echo $node->field_banner_image_quiz['und'][0]['alt']; ?>"/>
                                 <div class="advertised-text-overlap">
                                   <?php echo render($page['connect_quiz_info']); ?>
                                 </div>
