@@ -19,18 +19,19 @@ include_once('includes/breadcrumb-page.php');
                                   <?php echo render($page['connect_quiz_info']); ?>
                                 </div>
                         </div>
-
+                        <?php
+                            if(!empty($page['connect_quiz_response'])){
+                        ?>
                         <div id="connect-response-image" class="connect-response-image margin-top-20 hidden">
                             <div id="connectQuizScore" class="heading-score">
                                 You Scored: <span id="connect-quiz-score-passed">0</span> out of <span id="connect-quiz-score-failed">0</span>!
                             </div>
-
                             <?php echo render($page['connect_quiz_response']); ?>
 
                             <div class="score-share">
                                 <div class="caption left">Share</div>
                                 <div class="left">
-<!--                                    <div class="addthis_native_toolbox"></div>-->
+                                    <!--                                    <div class="addthis_native_toolbox"></div>-->
                                     <a href="javascript:;">
                                         <span class="score-share-icon fa fa-twitter fa-2x"></span>
                                     </a>
@@ -41,6 +42,19 @@ include_once('includes/breadcrumb-page.php');
                                 <div class="clear"></div>
                             </div>
                         </div>
+                        <?php
+                            } else {
+                        ?>
+                            <div id="connect-response-image" class="connect-response-image margin-top-20 hidden"
+                                 style="background: none;min-height: 0;padding-bottom: 5px;padding-top: 5px;">
+                                <div id="connectQuizScore" class="heading-score" style="margin-bottom:10px;
+                                font-weight: bold">
+                                    You Scored: <span id="connect-quiz-score-passed">0</span> out of <span id="connect-quiz-score-failed">0</span>!
+                                </div>
+                            </div>
+                        <?php
+                            }
+                        ?>
 
                         <div id="quizErrorMessage" class="alert alert-danger margin-top-10 hidden">
                             Please select at least one option of each question.
@@ -248,6 +262,8 @@ include_once('includes/breadcrumb-page.php');
 
     var arrQuestions = [];
     function initQuizValidator(){
+        $('.quiz-button-container .content a').addClass('btn btn-default btn-submit-transparent hidden').css('width',
+            'auto');
         $(".questions-container").each(function(idx, value){
             var arrQuestionDetail = [];
 
@@ -336,7 +352,7 @@ include_once('includes/breadcrumb-page.php');
                 icon.html(message);
 
                 $("#submit").hide();
-                $("#connect_more").removeClass('hidden');
+                $('.quiz-button-container .content a').removeClass('hidden');
                 $("#connect-response-image").removeClass('hidden');
             });
 
