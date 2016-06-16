@@ -38,11 +38,18 @@
                         <div class="description">
                             <?php echo (!empty($program->body['und'][0]['value'])) ? $program->body['und'][0]['value'] : ''; ?>
                         </div>
+                        <?php
+                            if($program->field_program_link['und'][0]['value'] != '#'){
+                        ?>
                         <div class="details-link">
-                            <a href="<?php echo $program->field_program_link['und'][0]['value']; ?>" title="Details" class="btn btn-submit-transparent btn-reserve-now no-border-radius" <?php if($program->field_program_link['und'][0]['value'] != '#'): ?> target="_blank" <?php endif; ?>>
+                            <a href="<?php echo $program->field_program_link['und'][0]['value']; ?>" title="Details"
+                               class="btn btn-submit-transparent btn-reserve-now no-border-radius" <?php if ($program->field_program_link['und'][0]['value'] != '#'): ?> target="_blank" <?php endif; ?>>
                                 Reserve Now
                             </a>
                         </div>
+                        <?php
+                            }
+                        ?>
                     </div>
                     <div class="clear"></div>
                 </div>
